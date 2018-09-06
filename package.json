@@ -10,21 +10,18 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/Shashank2406/cordova-plugin-zebra-scanner-ios.git"
   },
   "keywords": [
     "cordova",
     "zebra",
     "scanner",
     "ecosystem:cordova",
-    "cordova-android",
-    "cordova-ios",
-    "cordova-browser"
+    "cordova-ios"
   ],
   "author": "Shashank Srivastava",
-  "license": "@Shashank",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/Shashank2406/cordova-plugin-zebra-scanner-ios/issues"
   },
-  "homepage": ""
+  "homepage": "https://github.com/Shashank2406/cordova-plugin-zebra-scanner-ios"
 }
