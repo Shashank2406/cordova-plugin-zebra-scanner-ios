@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "description": "Cordova Wrapper for iOS Zebra Scanner SDK",
   "cordova": {
-    "id": "cordova-plugin-zebra-scanner",
+    "id": "cordova-plugin-zebra-scanner-ios",
     "platforms": [
       "ios"
     ]
