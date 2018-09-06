@@ -272,13 +272,11 @@ Zebra.prototype.enableAutomaticSessionReestablishment = function(enable, scanner
  *  @description : Requests to scanner/disable "Available scanners detection" option.
 **/
 Zebra.prototype._registerEventHandler = function() {
-    console.log("Event")
     cordova.exec(this._dispatch, {}, "ZebraScanner", "registerEventHandler");
 }
 
 // - (void) sbtEventScannerAppeared:(SbtScannerInfo*)availableScanner;
 Zebra.prototype.eventScannerAppeared = function(scanner) {
-    console.log("Event123")
     cordova.fireDocumentEvent('zebra.scannerAppeared', { detail:
         { scanner: scanner }
     });
@@ -301,7 +299,6 @@ Zebra.prototype.ZebraCommunicationSessionTerminated = function(scannerID) {
 
 // - (void) sbtEventBarcodeData:(NSData *)barcodeData barcodeType:(int)barcodeType fromScanner:(int)scannerID;
 Zebra.prototype.ZebraBarcodeData = function(data) {
-    console.log("sbtEventBarcodeData", data);
     cordova.fireDocumentEvent('zebra.barcodeData', { detail: {
         barcodeData: data['barcodeData'],
         barcodeType: data['barcodeType'],
