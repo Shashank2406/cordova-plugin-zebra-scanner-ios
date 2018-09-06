@@ -1,0 +1,30 @@
+{
+  "name": "cordova-plugin-zebra-scanner-ios",
+  "version": "0.0.1",
+  "description": "Cordova Wrapper for iOS Zebra Scanner SDK",
+  "cordova": {
+    "id": "cordova-plugin-zebra-scanner",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "cordova",
+    "zebra",
+    "scanner",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-browser"
+  ],
+  "author": "Shashank Srivastava",
+  "license": "@Shashank",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": ""
+}

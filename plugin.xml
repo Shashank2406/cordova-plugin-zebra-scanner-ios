@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-zebra-scanner" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>ZebraScanner</name>
+    <description>Cordova Wrapper for iOS Zebra Scanner SDK</description>
+    <keywords>zebra, CS4070, RFD8500, DS3678, LI3678</keywords>
+    <js-module name="ZebraScanner" src="www/zebrascanner.js">
+        <clobbers target="ZebraScanner" />
+    </js-module>
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="ZebraScanner">
+                <param name="ios-package" value="ZebraScanner" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        <header-file src="src/ios/ZebraScanner.h" />
+        <header-file src="src/ios/symbolbt-sdk/include/FirmwareUpdateEvent.h" />
+        <header-file src="src/ios/symbolbt-sdk/include/ISbtSdkApi.h" />
+        <header-file src="src/ios/symbolbt-sdk/include/ISbtSdkApiDelegate.h" />
+        <header-file src="src/ios/symbolbt-sdk/include/RMDAttributes.h" />
+        <header-file src="src/ios/symbolbt-sdk/include/SbtScannerInfo.h" />
+        <header-file src="src/ios/symbolbt-sdk/include/SbtSdkDefs.h" />
+        <header-file src="src/ios/symbolbt-sdk/include/SbtSdkFactory.h" />
+        <source-file src="src/ios/ZebraScanner.m" />
+        <source-file src="src/ios/symbolbt-sdk/libsymbolbt-sdk.a" framework="true" />
+        <framework src="libz.tbd" />
+
+        <framework src="CoreBluetooth.framework" />
+        <framework src="ExternalAccessory.framework" />
+        
+        <preference name="BLUETOOTH_USAGE_DESCRIPTION" default="Communicate with Zebra Scanners" />
+        <config-file target="*-Info.plist" parent="NSBluetoothPeripheralUsageDescription">
+            <string>$BLUETOOTH_USAGE_DESCRIPTION</string>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="UISupportedExternalAccessoryProtocols">
+            <array>
+                <string>com.zebra.scanner.SSI</string>
+                <string>com.motorolasolutions.scanner</string>
+                <string>com.motorolasolutions.CS4070_ssi</string>
+            </array>
+        </config-file>
+    </platform>
+</plugin>
