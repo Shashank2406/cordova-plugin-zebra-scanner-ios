@@ -52,7 +52,7 @@ export class BluetoothService {
         }
     }  
    bluetoothDataRead(event?): void {
-            this.blutoothSearchVariable.next(event.detail.barcodeData);
+            console.log("Read Success",event.detail.barcodeData);
         }
         
  
