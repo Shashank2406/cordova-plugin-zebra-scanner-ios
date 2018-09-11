@@ -18,7 +18,7 @@ npm install --save @ionic-native/bluetooth-serial
 Now you have to add `BluetoothSerial` to your `app.module.ts` (for ionic Version 4 you need `@ionic-native/bluetooth-serial@5.0.0-beta.x`):
 ```typescript
 ...
-// /npx is required for ioniv 4
+// /npx is required for ionic 4
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial/ngx';
 ...
 providers: [
