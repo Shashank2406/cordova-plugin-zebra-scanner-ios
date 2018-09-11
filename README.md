@@ -1,12 +1,31 @@
 # Cordova Plugin Zebra Scanner for iOS
 
-Cordova Wrapper for iOS Zebra Scanner SDK
+This Cordova plugin is a wrapper for the official [iOS Zebra Scanner SDK](https://www.zebra.com/gb/en/products/software/scanning-systems/scanner-drivers-and-utilities/scanner-ios-sdk.html).
 
 ### Installation
 
 #### For Ionic Project
 
 ```ionic cordova plugin add cordova-plugin-zebra-scanner-ios```
+
+> You also need to install [ionic native bluetooth-serial](https://beta.ionicframework.com/docs/native/bluetooth-serial).
+
+> For ionic versions `>4` use the following Command:
+```
+ionic cordova plugin add cordova-plugin-bluetooth-serial
+npm install --save @ionic-native/bluetooth-serial
+```
+Now you have to add `BluetoothSerial` to your `app.module.ts` (for ionic Version 4 you need `@ionic-native/bluetooth-serial@5.0.0-beta.x`):
+```typescript
+...
+// /npx is required for ioniv 4
+import { BluetoothSerial } from '@ionic-native/bluetooth-serial/ngx';
+...
+providers: [
+ ...,
+ BluetoothSerial
+],
+```
 
 #### For Cordova Project 
 
@@ -27,35 +46,44 @@ declare var window: any;
 
 @Injectable()
 export class BluetoothService {
-   constructor() {
-            document.addEventListener('zebra.barcodeData',
-            this.bluetoothDataRead.bind(this), false);
-        }
-   CheckDeviceConnected(): void {
-      window.ZebraScanner.getAvailableScanners().then((res) => {
-                if (res.length) {
-                    res.filter(item => {
-                        if (String(item.name).toLowerCase().indexOf('cs4070') !== -1) {    // Change your Scanner here 
-                            this.scannerID = item.scannerID;
-                            window.ZebraScanner.
-                            establishCommunicationSession(item.scannerID).then(data => {
-                               console.log("Device Connected")
-                            }, error => {
-                               console.log(error)
-                            });
-                        }
-                    });
-                } else {
-                    console.log("No Device Found")
-                }
-            });
-        }
-    }  
-   bluetoothDataRead(event?): void {
-            console.log("Read Success",event.detail.barcodeData);
-        }
-        
- 
-}
 
+   // Change your Scanner here
+   scannerName: string = 'cs4070';
+
+   constructor () {
+      document.addEventListener('zebra.barcodeData', this.bluetoothDataRead.bind(this), false);
+   }
+   
+   /**
+     * Demo for Output console.logs for connection status
+     */
+   CheckDeviceConnected (): void {
+      window.ZebraScanner
+         .getAvailableScanners()
+         .then((res) => {
+            if (res.length) {
+               res.filter(item => {
+                  if (String(item.name).toLowerCase().indexOf(this.scannerName) !== -1) { 
+                     this.scannerID = item.scannerID;
+                     window.ZebraScanner.
+                        establishCommunicationSession(item.scannerID)
+                        .then(data => {
+                           console.log("Device Connected")
+                        }, error => {
+                           console.log(error)
+                        });
+                  }
+               });
+            } else {
+               console.log("No Device Found")
+            }
+         });
+       }
+    }
+
+    bluetoothDataRead (event?): void {
+         console.log("Read Success",event.detail.barcodeData);
+    }
+      
+}
 ```
