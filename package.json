@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-zebra-scanner-ios",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Cordova Wrapper for iOS Zebra Scanner SDK",
   "cordova": {
     "id": "cordova-plugin-zebra-scanner-ios",
@@ -23,5 +23,6 @@
   "bugs": {
     "url": "https://github.com/Shashank2406/cordova-plugin-zebra-scanner-ios/issues"
   },
-  "homepage": "https://github.com/Shashank2406/cordova-plugin-zebra-scanner-ios"
+  "homepage": "https://github.com/Shashank2406/cordova-plugin-zebra-scanner-ios",
+  "license": "MIT" 
 }
