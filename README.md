@@ -1,3 +1,5 @@
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/cordova-plugin-zebra-scanner-ios/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=pr-badge) [![Zebra Scanner on npm](https://img.shields.io/npm/v/cordova-plugin-zebra-scanner-ios.svg)](https://www.npmjs.com/cordova-plugin-zebra-scanner-ios)
+
 # Cordova Plugin Zebra Scanner for iOS
 
 This Cordova plugin is a wrapper for the official [iOS Zebra Scanner SDK](https://www.zebra.com/gb/en/products/software/scanning-systems/scanner-drivers-and-utilities/scanner-ios-sdk.html).
