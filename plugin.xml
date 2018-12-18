@@ -35,8 +35,6 @@
 
         <config-file target="*-Info.plist" parent="UISupportedExternalAccessoryProtocols">
             <array>
-                <string>com.zebra.scanner.SSI</string>
-                <string>com.motorolasolutions.scanner</string>
                 <string>com.motorolasolutions.CS4070_ssi</string>
             </array>
         </config-file>
